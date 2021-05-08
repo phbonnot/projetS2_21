@@ -62,8 +62,9 @@ public class LecteurXML {
     public static void afficherTableau2D(int[][] str){
         for(int i=0;i<str.length;i++){
             for(int j=0;j<str[i].length;j++){
-                System.out.println(str[i][j]);
+                System.out.print(str[i][j]+"\t");
             }
+            System.out.println();
         }
     }
 
