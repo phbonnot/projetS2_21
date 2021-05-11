@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import outils.Parametres;
 
 public class Main extends Application {
 
@@ -13,7 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         BorderPane root = FXMLLoader.load(getClass().getResource("../vue/sample.fxml"));
         primaryStage.setTitle("World of Zelda");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, Parametres.scene_width,Parametres.scene_height));
         primaryStage.show();
     }
 

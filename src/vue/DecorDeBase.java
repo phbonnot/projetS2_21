@@ -17,7 +17,7 @@ public class DecorDeBase {
     final int dimTuiles=16;
     private final int largeurTileSet=25,hauteurTileSet=14;
     private ArrayList<int[][]> layers;
-    int[][] BGTab,SBGTab,OBJTab;
+    //int[][] BGTab,SBGTab,OBJTab;
     LecteurCSV lecteur;
 
     public DecorDeBase(int h,int w,String BG,String SBG, String o){
