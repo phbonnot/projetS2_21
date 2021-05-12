@@ -15,15 +15,17 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 
 import javafx.scene.shape.Shape;
+import modele.Link;
 import vue.DecorDeBase;
+import vue.VueLink;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-
-    private ImageView personnage;
+    private Link personnage;
+    private VueLink vuePersonnage;
 
     @FXML
     StackPane fond;
@@ -39,24 +41,22 @@ public class Controller implements Initializable {
             this.fond.getChildren().add(decor.construirePanel(layerTab,"../images/tilesZelda.png"));
         }
         this.pane.toFront();
-        URL imageURL = getClass().getResource("../images/IMG_0298.jpg");
-        Image image = new Image(imageURL.toExternalForm());
-        this.personnage=new ImageView(image);
-        this.personnage.setViewport(new Rectangle2D(100,100,10,10));
-        this.pane.getChildren().add(personnage);
-
+        this.personnage=new Link("Simone");
+        this.vuePersonnage=new VueLink(personnage);
+        this.pane.getChildren().add(this.vuePersonnage);
     }
 
     @FXML
     public void deplacement(KeyEvent event){
+
         switch(event.getCode()){
-            case RIGHT: this.personnage.relocate(personnage.getLayoutX()+5,personnage.getLayoutY());
+            case RIGHT:this.personnage.setX(this.personnage.getX()+5);
                 break;
-            case LEFT : this.personnage.relocate(personnage.getLayoutX()-5,personnage.getLayoutY());
+            case LEFT :this.personnage.setX(this.personnage.getX()-5);
                 break;
-            case UP : this.personnage.relocate(personnage.getLayoutX(),personnage.getLayoutY()-5);
+            case UP :this.personnage.setY(this.personnage.getY()-5);
                 break;
-            case DOWN : this.personnage.relocate(personnage.getLayoutX(),personnage.getLayoutY()+5);
+            case DOWN :this.personnage.setY(this.personnage.getY()+5);
                 break;
         }
     }
